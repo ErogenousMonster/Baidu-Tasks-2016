@@ -1,0 +1,110 @@
+/* docment */
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}
+
+html{
+	font-size: 62.5%;
+	
+}
+
+body{
+	font-size: 1.5rem;
+	line-height: 1.8;
+	color: #333;
+	font-family: 宋体,sans-serif;
+}
+
+ul{
+	list-style: none;
+}
+
+::selection{
+	color: deepskyblue;
+}
+
+.clearfix:before,
+.clearfix:after{
+	content:"";
+	display: table;
+}
+
+.clearfix:after{
+	clear: both;
+}
+
+.container,.left,.main,.right{
+	padding: 20px;
+	border: 1px solid #999;
+	background-color: #fff;
+}
+
+/* main */
+
+.container{
+	margin: 20px;
+	background-color: #eee;
+}
+
+/* left */
+
+.left{
+	width: 200px;
+	float: left;
+	position: relative;
+}
+
+.left img{
+	width: 80px;
+	height: 80px;
+	border: 1px solid #999;
+}
+
+.left span{
+	display: inline-block;
+	font-size: 1.4rem;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	line-height: 1.4rem;
+	font-weight: bold;
+}
+
+/* right */
+
+.right{
+	float: right;
+	width: 120px;
+}
+
+.right ul li{
+	width: 80px;
+	height: 80px;
+	font-size: 80px;
+	margin-bottom: 20px;
+	border: 1px solid #999;
+}
+
+/* main */
+
+.main{
+	float: left;
+	width: calc(100% - 360px);
+	width: -webkit-calc(100% - 360px);
+	width: -moz-calc(100% - 360px);
+	margin: 0 20px;
+}
+
+.main h2{
+	margin-bottom: 20px;
+}
+
+.main p{
+	text-indent: 3rem;
+}
