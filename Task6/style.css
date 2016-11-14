@@ -1,0 +1,372 @@
+/* dcoument */
+
+html{
+	font-size: 62.5%;
+	color: #7b7b7b;
+	font-family: "微软雅黑",sans-serif;
+}
+
+body{
+	background-color: #fff;
+}
+
+ul{
+	list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+	margin: 0;
+}
+
+::selection{
+	color: deepskyblue;
+};
+
+.clearfix:before,
+.clearfix:after{
+	content: "";
+	display: table;
+}
+
+.clearfix:after{
+	clear: both;
+}
+
+/* main */
+
+/* header */
+
+header{
+	height: 58px;
+	margin: 0 60px;
+}
+
+header .brand{
+	display: inline-block;
+	width: 145px;
+	height: 58px;
+	background: url(img/icon-1.png) no-repeat center left;
+	background-size: 20% 50%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+header .brand h1{
+	font-size: 2rem;
+	font-weight: normal;
+	line-height: 58px;
+	margin: 0;
+}
+
+header nav{
+	display: inline-block;
+	width: 38%;
+	height: 58px;
+	position: relative;
+	left: 44%;
+	vertical-align: middle;
+}
+
+header nav ul{
+	font-size: 0;
+	width: 100%;
+	padding: 0;
+}
+
+header nav ul li{
+	display: inline-block;
+	width: 20%;
+	font-size: 1.4rem;
+	line-height: 58px;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: color 0.4s ease-in-out;
+	-moz-transition: color 0.4s ease-in-out;
+	transition: color 0.4s ease-in-out;
+}
+
+header nav ul li:hover{
+	color: #F04C57;
+}
+
+header nav ul li.underline{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-top: 3px solid #e53c3c;
+	-webkit-transition: left 0.4s ease-in-out;
+	-moz-transition: left 0.4s ease-in-out;
+	transition: left 0.4s ease-in-out;
+}
+
+header nav ul li:nth-child(1):hover~.underline{
+	left: 0;
+}
+
+header nav ul li:nth-child(2):hover~.underline{
+	left: 20%;
+}
+
+header nav ul li:nth-child(3):hover~.underline{
+	left: 40%;
+}
+
+header nav ul li:nth-child(4):hover~.underline{
+	left: 60%;
+}
+
+header nav ul li:nth-child(5):hover~.underline{
+	left: 80%;
+}
+
+header .login{
+	display: inline-block;
+	position: relative;
+	left: 45%;
+	padding-bottom:5px;
+}
+
+header .login span{
+	display: inline-block;
+	margin-right: 5px;
+	width: 14px;
+	height: 17px;
+	text-align: left;
+	background: url(img/icon-2.jpg) no-repeat;
+}
+
+header .login a{
+	display: inline-block;
+	font-size: 1.4rem;
+	color: #F04C57;
+	text-decoration: none;
+	text-align: right;
+}
+
+/* section new-life */
+
+.new-life .life-top{
+	height: 700px;
+	background: url(img/pic01.jpg) no-repeat;
+	background-size: 100%;
+	margin-top: -1px;
+}
+
+.new-life .life-top .start{
+	padding-top: 220px;
+	padding-left: 110px;
+	color: #fff;
+}
+
+.new-life .life-top .start h1{
+	font-size: 6rem;
+	font-family: Arial;
+	font-weight: normal;
+	letter-spacing: 2px;
+	line-height: 7rem;
+}
+
+.new-life .life-top .start p{
+	font-size: 2.2rem;
+	margin-left: 10px;
+	font-weight: lighter;
+	line-height: 3rem;
+}
+
+.new-life .life-top .start a{
+	display: block;
+	margin-left: 10px;
+	margin-top: 54px;
+	width: 332px;
+	height: 64px;
+	font-size: 3.2rem;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	line-height: 64px;
+	background-color: #e7504e;
+}
+
+.new-life nav ul{
+	padding: 0;
+	margin-left: 10px;
+}
+
+.new-life nav ul li{
+	display: inline-block;
+	width: calc(25% - 6px);
+	text-align: center;
+}
+
+.new-life nav ul li i.icon{
+	display: inline-block;
+	margin: 35px auto;
+	width: 45px;
+	height: 45px;
+	-webkit-transition: 0.3s linear;
+	-moz-transition: 0.3s linear;
+	transition: 0.3s linear;
+}
+
+.new-life nav ul li:hover i.icon{
+	margin: 30px auto;
+	transform: rotateX(360deg) scale(1.2);
+}
+
+.new-life nav ul li i.icon1{
+	background: url(img/icon-3.jpg) no-repeat;
+}
+
+.new-life nav ul li i.icon2{
+	background: url(img/icon-4.jpg) no-repeat;
+}
+
+.new-life nav ul li i.icon3{
+	background: url(img/icon-5.jpg) no-repeat;
+}
+
+.new-life nav ul li i.icon4{
+	background: url(img/icon-6.jpg) no-repeat;
+}
+
+.new-life nav ul li div.border{
+	border-left: 2px solid #bbb;
+}
+.new-life nav ul li span{
+	display: block;
+	width: 156px;
+	font-size: 1.4rem;
+	margin: 0 auto;
+	padding: 5px 0 20px 0;
+}
+
+/* section new-info */
+
+.new-info{
+
+}
+
+.new-info div.question{
+	height: 362px;
+	background-color: #ededed;
+	padding-top: 90px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.new-info div.question span{
+	display: block;
+	width: 94px;
+	height: 92px;
+	background: url(img/icon-1.png) no-repeat;
+	background-size: 94px 92px;
+	margin: 0 auto;
+}
+
+.new-info div.question h1{
+	font-size: 5.2rem;
+	color: #9f9f9f;
+	text-align: center;
+	margin-top: 44px;
+	font-weight: normal;
+}
+
+.new-info div.city{
+	height: 340px;
+	background: url(img/pic02.jpg) no-repeat;
+	background-size: 100% 340px;
+	position: relative;
+}
+
+.new-info .city .red{
+	height: 340px;
+	background-color: #e7504e;
+	opacity: 0.2;
+	filter: alpha(opacity = 20);
+}
+
+.new-info .city .opacity{
+	width: 100%;
+	height: 340px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.new-info .city .opacity h3{
+	font-size: 2.2rem;
+	color: #fff;
+	font-weight: 100;
+	text-align: center;
+	margin-top: 45px;
+
+}
+
+.new-info .city .opacity span{
+	display: block;
+	height: 2px;
+	width: 32px;
+	border-top: 2px solid #fff;
+	margin: 10px auto;
+}
+
+.new-info .city .opacity p{
+	font-size: 1.3rem;
+	color: #fff;
+	font-weight: 100;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.new-info .city .opacity form{
+	margin-top: 52px;
+	text-align: center;
+}
+
+.new-info .city .opacity form select{
+	margin-right: 28px;
+	width: 238px;
+	height: 35px;
+	font-size: 1.3rem;
+	color: #7b7b7b;
+	position: relative;
+}
+
+.new-info .city .opacity form select option{
+	height: 30px;
+	background-color: #e3e3e5;
+}
+
+.new-info .city .opacity form button{
+	width: 238px;
+	height: 35px;
+	font-size: 1.6rem;
+	color: #fff;
+	background-color: #be4f48;
+	border: none;
+	transition: 0.5s ease-in-out;
+}
+
+.new-info .city .opacity form button:hover{
+	background-color: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+}
+
+/* nav */
+
+nav.shanghai{
+	margin: 103px 0 116px 0;
+	background-color: #f8f8f8;
+}
+
+.shanghai ul{
+	padding: 0;
+	text-align: center;
+}
+
+.shanghai ul li{
+	display: inline-block;
+	margin-left: 38px;
+}
