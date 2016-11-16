@@ -6,6 +6,7 @@
 	<title>新世界</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -57,8 +58,7 @@
 			<div class="city">
 				<div class="red"></div>
 				<div class="opacity">
-					<h3>查找新世界城市活动信息</h3>
-					<span></span>
+					<h3>查找新世界城市活动信息<span></span></h3>
 					<P>每个城市都有不同的活动信息，请自主查询您所需要了解的城</P>
 					<form>
 						<select>
@@ -88,10 +88,10 @@
 
 			<nav class="shanghai">
 				<ul>
-					<li><img src=""><p>北京活动</p><span>新社区大联盟</span></li>
-					<li><img src=""><p>上海活动</p><span>夜上海新景观探索</span></li>
-					<li><img src=""><p>深圳活动</p><span>全新海岸线观点站</span></li>
-					<li><img src=""><p>香港活动</p><span>奢侈消费大派送</span></li>
+					<li><i class="pic pic1"></i><p>北京活动<span>新社区大联盟</span></p></li>
+					<li><i class="pic pic2"></i><p>上海活动<span>夜上海新景观探索</span></p></li>
+					<li><i class="pic pic3"></i><p>深圳活动<span>全新海岸线观点站</span></p></li>
+					<li><i class="pic pic4"></i><p>香港活动<span>奢侈消费大派送</span></p></li>
 				</ul>
 			</nav>
 		</section>
@@ -101,54 +101,74 @@
 				<h1>新世界<em>TIME</em></h1>
 				<p>@新世界-北京</p>
 				<p>2016.04.01</p>
+				<span class="triangle"></span>
 			</div>
 
-			<div class="article">
-				<div class="01">
-					<h1>新世界/<span>01</span></h1>
+
+			<div class="new-article">
+				<div class="article article1">
+					<h1>新世界<i>/</i><span>01</span></h1>
 					<p>新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界</p>
 				</div>
 
-				<div class="02">
-					<h1>厉害了/<span>02</span></h1>
+				<div class="article article2">
+					<h1>厉害了<i>/</i><span>02</span></h1>
 					<p>厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了厉害了</p>
 				</div>
 
-				<div class="03">
-					<h1>我的哥/<span>03</span></h1>
+				<div class="article article3">
+					<h1>我的哥<i>/</i><span>03</span></h1>
 					<p>我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥我的哥</p>
 				</div>
 
 				<a href="">更多详情</a>
 
-				<input type="radio" checked name="value1">
-				<input type="radio" name="value2">
-				<input type="radio" name="value3">
+				<div class="option">
+					<input type="radio" checked name="new" >
+					<input type="radio" name="new" >
+					<input type="radio" name="new" >
 
-				<span id="value1"></span>
-				<span id="value2"></span>
-				<span id="value3"></span>
+					<span class="value1"></span>
+					<span class="value2"></span>
+					<span class="value3"></span>
+				</div>
 			</div>
+        </section>
 
+        <section class="new-time">
 			<div class="love-life">
 				<div class="love-red">
 					<p>新时代</p>
 					<p>关于爱生活的我们</p>
-					<a href="">查看更多</a>
+					<span class="fixline"></span>
+					<a class="button" href="">查看更多
+						<span class="line line-top"></span>
+						<span class="line line-right"></span>
+						<span class="line line-bottom"></span>
+						<span class="line line-left"></span>
+					</a>
 				</div>
 
 				<div class="love-white">
 					<p>新时代</p>
 					<p>关于爱生活的我们</p>
-					<a href="">查看更多</a>
+					<span class="fixline"></span>
+					<a class="button" href="">查看更多
+						<span class="line line-top"></span>
+						<span class="line line-right"></span>
+						<span class="line line-bottom"></span>
+						<span class="line line-left"></span>
+					</a>
 				</div>
+ 			</div>
 
-				<div class="love-pic"></div>
+			<div class="love-pic">
+				<span></span>
 			</div>
 		</section>
 
 		<section class="volunteer">
-			<h1>成为我们的志愿者</h1>
+			<h1>成为我们的志愿者<span></span></h1>
 			<p>新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情</p>
 			<p>那就不要犹豫，快来加入我们，成为改变所有人生活的人</p>
 
@@ -188,16 +208,17 @@
 				<h1>联系我们</h1>
 				<p>为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯</p>
 				<p>也可以通过以下任何方式关注我们动态</p>
-				<input type="text" name="emails" placeholder="someone@email.com">
-				<button提交></button>
-				<nav>
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</nav>
+				<div class="text">
+					<input type="text" name="emails" placeholder="someone@email.com">
+					<button>提交</button>
+				</div>
+
+				<div class="lists">
+					<i class="fa fa-qq"></i>
+					<i class="fa fa-weibo"></i>
+					<i class="fa fa-twitter"></i>
+					<i class="fa fa-globe"></i>
+				</div>
 			</div>
 
 			<div class=footer>
