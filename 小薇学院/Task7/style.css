@@ -1,0 +1,89 @@
+/* document */
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* main */
+
+.container{
+	width: 100%;
+	padding-right: 20px;
+}
+
+.container .row:before,
+.container .row:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+[class*="col"]{
+	float: left;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
+p{
+	height: 50px;
+	background-color: #eee;
+	border: 1px solid #999;
+}
+
+@media all and (min-width: 768px){
+	.col-md-1{
+		width: 8.33%;
+	}
+	.col-md-2{
+		width: 16.66%;
+	}
+	.col-md-3{
+		width: 24.99%;
+	}
+	.col-md-4{
+		width: 33.32%;
+	}
+	.col-md-5{
+		width: 41.65%;
+	}
+	.col-md-6{
+		width: 49.98%;
+	}
+	.col-md-7{
+		width: 58.31%;
+	}
+	.col-md-8{
+		width: 66.64%;
+	}
+}
+
+@media all and (max-width: 768px){
+.col-sm-1{
+	width: 8.33%;
+}
+.col-sm-2{
+	width: 16.66%;
+}
+.col-sm-3{
+	width: 24.99%;
+}
+.col-sm-4{
+	width: 33.32%;
+}
+.col-sm-5{
+	width: 41.65%;
+}
+.col-sm-6{
+	width: 49.98%;
+}
+.col-sm-7{
+	width: 58.31%;
+}
+.col-sm-8{
+	width: 66.64%;
+}
+.col-sm-12{
+	width: 100%;
+}
