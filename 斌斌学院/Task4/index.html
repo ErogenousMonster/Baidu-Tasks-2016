@@ -45,7 +45,7 @@
 			color: #fff;
 			border-radius: 3px;
 		}
-		#showIn button:nth-of-type(2){
+		#showIn button:nth-of-type(2),#showIn button:nth-of-type(4){
 			margin-right: 30px;
 		}
 
@@ -70,6 +70,9 @@
 			var oRightIn = document.getElementById('rightIn');
 			var oRightOut = document.getElementById('rightOut');
 			var oUl = document.getElementById('showOut');
+			var oUp = document.getElementById('goUp');
+			var oDown = document.getElementById('goDown');
+			var data = [];
 			var flag = 1;
 
 			//输入
@@ -120,6 +123,32 @@
 				}
 			})
 
+			oUp.onclick = function(){
+				doSort(function(a,b){return b - a});
+			}
+
+			oDown.onclick = function(){
+				doSort(function(a,b){return a - b});
+			}
+
+			function doSort(fn){
+				var oUl = document.getElementById('showOut');
+				var oList = oUl.getElementsByTagName('li');
+				for(let i = 0;i < oList.length;i ++){
+					data[i] = oList[i].offsetHeight;
+				}
+				data.sort(fn);
+				
+				oUl.innerHTML = ' ';
+
+				for(let j = 0;j < data.length;j ++){
+					var oLi = document.createElement('li');
+					oLi.style.height = data[j] + 'px';
+					
+					oUl.append(oLi,oUl.lastChild);
+				}
+			}
+
 			function checkNum(){
 				var oUl = document.getElementById('showOut');
 				var oList = oUl.getElementsByTagName('li');
@@ -140,6 +169,8 @@
 			<button id="rightIn">右侧入</button>
 			<button id="leftOut">左侧出</button>
 			<button id="rightOut">右侧出</button>
+			<button id="goUp">升序排列</button>
+			<button id="goDown">降序排列</button>
 		</div>
 
 		<ul id="showOut">
