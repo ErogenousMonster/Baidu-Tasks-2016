@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task3</title>
+	<style type="text/css">
+		/*common css*/
+		body{
+			margin: 0;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li{
+			display: inline-block;
+		}
+
+		/*main css*/
+		#container{
+			width: 1200px;
+			border: 1px solid #000;
+			margin: 20px auto;
+			padding: 10px 10px 0 10px;
+		}
+
+		/*input css*/
+		#showIn input{
+			width: 300px;
+			outline: none;
+			padding-left: 10px;
+			height: 25px;
+			line-height: 25px;
+			font-size: 16px;
+			border-radius: 3px;
+			border: 1px solid #bbb;
+		}
+
+		#showIn button{
+			width: 70px;
+			height: 26px;
+			border: none;
+			background-color: #38f;
+			color: #fff;
+			border-radius: 3px;
+		}
+		#showIn button:nth-of-type(2){
+			margin-right: 30px;
+		}
+
+		/*显示样式*/
+		#showOut{
+			display: flex;
+			align-items: flex-end;
+			margin-top: 10px;
+			height: 130px;
+		}
+		#showOut li{
+			width: 15px;
+			background-color: red;
+			margin-right: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oInput = document.getElementById('input');
+			var oLeftIn = document.getElementById('leftIn');
+			var oLeftOut = document.getElementById('leftOut');
+			var oRightIn = document.getElementById('rightIn');
+			var oRightOut = document.getElementById('rightOut');
+			var oUl = document.getElementById('showOut');
+			var flag = 1;
+
+			//输入
+			oLeftIn.onclick = function(){
+				checkNum();
+				if(flag){
+					var oVal = oInput.value;
+					if(oVal == null ||  oVal.replace(/(^\s*)|(\s*$)/g, "") == '' || isNaN(oVal) || oVal < 10 || oVal > 100){
+						alert('请输入10-100以内的数字');
+					} else{
+						var oLi = document.createElement('li');
+						
+						oLi.style.height = oVal + 'px';
+						oUl.insertBefore(oLi,oUl.firstChild);
+					}
+				}
+			}
+
+			oRightIn.onclick = function(){
+				checkNum();
+				if(flag){
+					var oVal = oInput.value;
+					if(oVal == null || oVal.replace(/(^\s*)|(\s*$)/g, "") == '' || isNaN(oVal) || oVal < 10 || oVal > 100){
+						alert('请输入10-100以内的数字');
+					} else{
+						var oLi = document.createElement('li');
+						oLi.style.height = oVal + 'px';
+						oUl.appendChild(oLi,oUl.lastChild);
+					}
+				}
+			}
+
+			//输出
+			oLeftOut.onclick = function(){
+				if(oUl.firstChild){
+					oUl.removeChild(oUl.firstChild);
+				}
+			}
+			oRightOut.onclick = function(){
+				if(oUl.lastChild){
+					oUl.removeChild(oUl.lastChild);
+				}
+			}
+
+			oUl.addEventListener('click',function(e){
+				if(e.target.nodeName == 'LI'){
+					oUl.removeChild(e.target);
+				}
+			})
+
+			function checkNum(){
+				var oUl = document.getElementById('showOut');
+				var oList = oUl.getElementsByTagName('li');
+				if(oList.length >= 60){
+					alert('最多只能输入60个数字，已超出');
+					flag = 0;
+				}
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div id="showIn">
+			<input type="text" id="input">
+			<button id="leftIn">左侧入</button>
+			<button id="rightIn">右侧入</button>
+			<button id="leftOut">左侧出</button>
+			<button id="rightOut">右侧出</button>
+		</div>
+
+		<ul id="showOut">
+		</ul>
+	</div>
+</body>
+</html>
