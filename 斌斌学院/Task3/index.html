@@ -105,13 +105,13 @@
 			//输出
 			oLeftOut.onclick = function(){
 				if(oUl.firstChild){
-					alert(oUl.firstChild.innerText);
+					alert('删除元素：' + oUl.firstChild.innerText);
 					oUl.removeChild(oUl.firstChild);
 				}
 			}
 			oRightOut.onclick = function(){
 				if(oUl.lastChild){
-					alert(oUl.lastChild.innerText);
+					alert('删除元素：' + oUl.lastChild.innerText);
 					oUl.removeChild(oUl.lastChild);
 				}
 			}
@@ -130,7 +130,6 @@
 		</div>
 
 		<ul id="showOut">
-			<li>12</li>
 		</ul>
 	</div>
 </body>
