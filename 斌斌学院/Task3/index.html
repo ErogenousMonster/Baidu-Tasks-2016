@@ -115,7 +115,12 @@
 					oUl.removeChild(oUl.lastChild);
 				}
 			}
-			
+			var oList = oUl.getElementsByTagName('li');
+			for(let i = 0;i < oList.Length;i ++){
+				oList[i].onclick = function(){
+					oUl.removeChild(this);
+				}
+			}
 		}
 	</script>
 </head>
