@@ -115,12 +115,11 @@
 					oUl.removeChild(oUl.lastChild);
 				}
 			}
-			var oList = oUl.getElementsByTagName('li');
-			for(let i = 0;i < oList.Length;i ++){
-				oList[i].onclick = function(){
-					oUl.removeChild(this);
+			oUl.addEventListener('click',function(e){
+				if(e.target.nodeName == 'LI'){
+					oUl.removeChild(e.target);
 				}
-			}
+			})
 		}
 	</script>
 </head>
