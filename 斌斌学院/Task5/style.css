@@ -1,0 +1,81 @@
+/*common css*/
+body{margin: 0;}
+ul{margin: 0;padding: 0;list-style: none;}
+input,textarea{margin: 0;padding: 0;outline: none;}
+button{border: none;cursor:pointer;}
+/*main css*/
+#container{
+	overflow: hidden;
+	min-width: 600px;
+	margin: 10px;
+}
+
+#left,#right{
+	float: left;
+	box-sizing: border-box;
+	display: inline-block;
+	width: calc((100% - 34px)/2);
+	width: -webkit-calc((100% - 34px)/2);
+	border: 1px solid #000;
+}
+
+#left{
+	margin-right: 10px;
+	padding: 10px;
+}
+
+#left textarea{
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	height: 300px;
+	margin-bottom: 10px;
+}
+
+#left button{
+	width: 65px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 16px;
+	background-color: #38f;
+	color: #fff;
+	border-radius: 3px;
+}
+
+#left div{overflow: hidden;}
+
+#left input{
+	padding-left: 10px;
+	border: 1px solid rgba(0,0,0,0.5);
+	border-radius: 3px;
+	float: left;
+	margin: 10px 0 0 10px;
+	width: calc(100% - 90px);
+	width: -webkit-calc(100% - 90px);
+	height: 24px;
+}
+#left #buttonSearch {
+	margin-top: 10px;
+	float: left;
+}
+
+#right{
+	min-height: 393px;
+	padding: 10px;
+}
+
+#right li{
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 0 15px;
+	height: 50px;
+	line-height: 50px;
+	background-color: lightblue;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	cursor: pointer;
+}
