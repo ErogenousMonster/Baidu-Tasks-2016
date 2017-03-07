@@ -57,3 +57,12 @@ oButtonSearch.onclick = function(){
 		}
 	}
 }
+
+//使textarea能输入tab
+function tab(obj){
+  if (event.keyCode == 9)
+  {
+     obj.value = obj.value + "	"; 
+     event.returnValue = false;
+  }
+}
