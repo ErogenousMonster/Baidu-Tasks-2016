@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- box-shadow: 0 0 1px 1px #ddd inset; -->
+	<meta charset="UTF-8">
+	<title>Task0</title>
+	<style type="text/css">
+		body{margin: 0;}
+		#container{margin: 100px auto;width: 600px;}
+		#container div{width: 100%;overflow: hidden;}
+		#container div label{display: inline-block;height: 44px;line-height: 44px;margin-right: 40px;float: left;font-size: 20px;}
+		#container div input{width: 400px;height: 40px;border: 1px solid;border-color: #ccc;border-radius: 5px;float: left;outline: none;font-size: 22px;padding-left: 10px;margin-right: 10px;}
+		#container div button{width: 75px;height: 44px;float: left;background-color: #38f;color: #fff;font-size: 20px;border-radius: 5px;border: none;}
+
+		#showOut p{padding-left: 82px;margin: 10px 0;font-size: 16px;color: #acacac;}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var oInput = document.getElementById('strings');
+			var oCheck = document.getElementById('checkStrings');
+			var oShow = document.getElementById('showText');
+
+			//设置获得焦点和失去焦点的事件
+			oInput.onfocus = function(){
+				oInput.style.boxShadow = '0 0 1px 1px #ddd inset';
+			}
+			oInput.onblur = function(){
+				oInput.style.boxShadow = 'none';
+			}
+
+			//1.字符数为4~16位
+			oCheck.onclick = function(){
+				let oVal = oInput.value;
+				let oCheckString = checkString(oVal);
+				console.log(oVal);
+				//未输入值
+				if(oVal == ''){
+					oShow.innerHTML = '必填，长度为4~16个字符';
+				}
+	 			//不满足4~16个字符
+				else if(oCheckString < 4 || oCheckString > 16){
+					oShow.innerHTML = '长度应为4~16个字符';
+					oShow.style.color = 'red';
+					oInput.style.borderColor = 'red';
+				} else if(oVal.replace(/(^\s*)|(\s*$)/g, "") == ''){
+					oShow.innerHTML = '姓名不能为空';
+					oShow.style.color = 'red';
+					oInput.style.borderColor = 'red';
+				} else {
+					oShow.innerHTML = '名称格式正确';
+					oShow.style.color = 'green';
+					oInput.style.borderColor = 'green';
+				}
+			}
+
+			//计算输入字符的长度
+			function checkString(strings){
+				//非中文字符的数目
+				let oEnl = 0;
+				//中文字符的数目
+				let oCnl = 0;
+				//总的字符数
+				let oSum = 0;
+				let oStrings = strings.split('');
+				console.log(oStrings);
+				//匹配英文数字字符
+				let oReg = /[a-zA-Z0-9]/g;
+				for(let i = 0;i < oStrings.length;i ++){
+					if(oReg.test(oStrings[i])){
+						console.log(oReg.test(oStrings[i]));
+						oEnl ++;
+					} else{
+						console.log(oReg.test(oStrings[i]));
+						oCnl += 2;
+					}
+				}
+				oSum = oCnl + oEnl;
+				console.log(oSum);
+				return oSum;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div id="inputIn">
+			<label>名称</label>
+			<input type="text" id="strings">
+			<button id="checkStrings">验证</button>
+		</div>
+		<div id="showOut">
+			<p id="showText"></p>
+		</div>
+	</div>	
+</body>
+</html>
