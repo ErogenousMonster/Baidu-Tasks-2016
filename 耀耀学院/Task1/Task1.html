@@ -2,9 +2,369 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task1</title>
+	<style type="text/css">
+		html{font-size: 62.5%;}
+		body{margin: 0;}
+		div{
+			width: 70%;
+			margin: 2rem auto;
+			overflow: hidden;
+		}
+		div:nth-child(1){
+			margin-top: 4rem;
+		}
+		div label{
+			float: left;
+			width: 15%;
+			height: 3.5rem;
+			font-size: 2rem;
+			text-align: right;
+			margin-right: 1.8rem;
+		}
+		div input{
+			float: left;
+			width: calc(85% - 8rem - 2px);
+			height: 3rem;
+			font-size: 2rem;
+			border: 1px solid #bbb;
+			border-radius: 5px;
+			padding-left: 1rem;
+			outline: none;
+		}
+		div p{
+			margin: 0;
+			float: left;
+			width: 70%;
+			height: 2.5rem;
+			line-height: 2.5rem;
+			font-size: 1.8rem;
+			color: #fff;	
+		}
+		div button{
+			width: 7rem;
+			height: 3rem;
+			line-height: 3rem;
+			font-size: 1.8rem;
+			background-color: #38f;
+			color: #fff;
+			float: right;
+			border: none;
+			border-radius: 5px;
+			margin-right: 5rem;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oName = document.getElementById('inputName');
+			var oPassword = document.getElementById('inputPassword');
+			var oConfirm = document.getElementById('inputConfirm');
+			var oEmail = document.getElementById('inputEmail');
+			var oPhone = document.getElementById('inputPhone');
+			var oInput = document.getElementsByTagName('input');
+			var oButton = document.getElementById('checkButton');
+
+//函数部分
+			//所有Input的得焦失焦样式基础设置
+			function loseFocus(obj){
+				obj.style.boxShadow = 'none';
+			}
+
+			//所有Input得焦事件设置
+			function getFocus(obj,textOne,textTwo,textThree,textFour,textFive){
+				//边框样式
+				obj.style.boxShadow = '0 0 1px 1px #ddd inset';
+
+				let nowPar = obj.parentNode.lastChild;
+				//如果已经显示验证结果，那么再输入时不改变提示，等待下一次失焦验证
+				if(nowPar.innerHTML == textOne || nowPar.innerHTML == textTwo || nowPar.innerHTML == textThree || nowPar.innerHTML == textFour){
+				} else {
+					//无值时得焦提示
+					showPar(obj,'#bbb',textFive);
+				}
+			}
+
+			//所有Input得焦显示P
+			function showPar(obj,color,text){
+				//先清空提示
+				let nowPar = obj.parentNode.getElementsByTagName('p');
+				if(nowPar[0] != undefined){
+					obj.parentNode.removeChild(obj.parentNode.lastChild);
+				}
+				let oPar = document.createElement('p');
+				let oText = document.createTextNode(text);
+				oPar.appendChild(oText);
+				oPar.style.color = color;
+				obj.parentNode.appendChild(oPar);
+			}
+
+			//去掉空格
+			function trim(str) {
+ 				return str.replace(/(^\s+)|(\s+$)/g, "");
+			}
+
+			//计算name输入字符的长度
+			function checkString(strings){
+				//非中文字符的数目
+				let oEnl = 0;
+				//中文字符的数目
+				let oCnl = 0;
+				//总的字符数
+				let oSum = 0;
+				let oStrings = strings.split('');
+				// console.log(oStrings);
+				//匹配英文数字字符
+				let oReg = /[a-zA-Z0-9]/g;
+				for(let i = 0;i < oStrings.length;i ++){
+					if(oReg.test(oStrings[i])){
+						console.log(oReg.test(oStrings[i]));
+						oEnl ++;
+					} else{
+						console.log(oReg.test(oStrings[i]));
+						oCnl += 2;
+					}
+				}
+				oSum = oCnl + oEnl;
+				return oSum;
+			}
+
+			//当input未输入值时，删除P并返回最初提示
+			function clearPar(parent,child){
+				parent.parentNode.removeChild(child);
+				parent.style.borderColor = '#bbb';
+			}
+
+			//获取样式
+			function getStyle(obj,attr){
+  				if(obj.currentStyle){ 
+  				//针对IE浏览器
+   				return obj.currentStyle[attr];
+			} else{
+   				//针对火狐浏览器
+   				return getComputedStyle(obj,false)[attr];
+			}
+		}
+
+//事件部分
+			//name失焦得焦事件  
+			oName.onfocus = function(){
+				//基础得焦显示
+				getFocus(this,'必填，长度为4~16个字符','长度应为4~16个字符','姓名不能为空','名称格式正确','必填，长度为4~16个字符');
+			}
+			oName.onblur = function(){
+				//基础失焦显示
+				loseFocus(this);
+
+				//输入验证，并返回提示
+				let oVal = trim(this.value);
+				let oCheckString = checkString(oVal);
+				let nowPar = this.parentNode.lastChild;
+				//未输入值时清空提示
+				if(oVal == ''){
+					clearPar(this,nowPar);
+				} else if(oVal.replace(/(\s*)|(\s*$)/g, "") == ''){
+					nowPar.innerHTML = '姓名不能为空';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+					//不满足4~16个字符
+				} else if(oCheckString < 4 || oCheckString > 16){
+					nowPar.innerHTML = '长度应为4~16个字符';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				} else {
+					nowPar.innerHTML = '名称格式正确';
+					nowPar.style.color = 'green';
+					this.style.borderColor = 'green';
+				} 
+			}
+
+			//password失焦得焦事件  
+			oPassword.onfocus = function(){
+				//全局得焦显示
+				getFocus(this,'密码需为6到12位','密码可用','必填，密码为6到12位字母或数字','密码不能为空','必填，密码为6到12位字母或数字');
+			}
+			oPassword.onblur = function(){
+				//基础失焦显示
+				loseFocus(this);
+
+				//输入验证，并返回提示
+				let oVal = trim(this.value);
+				let nowPar = this.parentNode.lastChild;
+				//未输入值时清空提示
+				if(oVal == ''){
+					clearPar(this,nowPar);
+				} else if(oVal.replace(/(^\s*)|(\s*$)/g, "") == ''){
+					nowPar.innerHTML = '密码不能为空';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				} else if(oVal.length < 6 || oVal.length > 12){
+					nowPar.innerHTML = '密码需为6到12位';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				} else{
+					nowPar.innerHTML = '密码可用';
+					nowPar.style.color = 'green';
+					this.style.borderColor = 'green';
+				}
+			}
+
+			//密码确认得焦失焦事件
+			oConfirm.onfocus = function(){
+				//全局得焦显示
+				getFocus(this,'密码需为6到12位','两次输入密码不一致','密码输入一致','密码不能为空','请再次输入密码');
+			}
+
+			oConfirm.onblur = function(){
+				//基础失焦显示
+				loseFocus(this);
+
+				//输入验证，并返回提示
+				let oVal = trim(this.value);
+				let nowPar = this.parentNode.lastChild;
+				//得到上一次输入的密码
+				let firstVal = oPassword.value;
+				//未输入值时清空提示
+				if(oVal == ''){
+					clearPar(this,nowPar);
+				} else if(oVal.replace(/(^\s*)|(\s*$)/g, "") == ''){
+					nowPar.innerHTML = '密码不能为空';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				} else if(firstVal.length < 6 || firstVal.length > 12){
+					nowPar.innerHTML = '密码需为6到12位';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				} else if(oVal != firstVal){
+					nowPar.innerHTML = '两次输入密码不一致';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				} else{
+					nowPar.innerHTML = '密码输入一致';
+					nowPar.style.color = 'green';
+					this.style.borderColor = 'green';
+				}
+			}
+
+			//邮箱得焦失焦事件
+			oEmail.onfocus = function(){
+				//全局得焦显示
+				getFocus(this,'邮箱不能为空','邮箱格式不正确','邮箱可用','请输入邮箱','请输入邮箱');
+			}
+
+			oEmail.onblur = function(){
+				//基础失焦显示
+				loseFocus(this);
+
+				//输入验证，并返回提示
+				let oVal = trim(this.value);
+				let nowPar = this.parentNode.lastChild;
+				//邮箱验证
+				let oReg = /^([a-zA-Z0-9])+@([a-zA-Z0-9])+(.[a-zA-Z0-9])+/g;
+				//未输入值时清空提示
+				if(oVal == ''){
+					clearPar(this,nowPar);
+				} else if(oVal.replace(/(^\s*)|(\s*$)/g, "") == ''){
+					nowPar.innerHTML = '邮箱不能为空';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				} else if(oReg.test(oVal)){
+					console.log(oReg.test(oVal));
+					nowPar.innerHTML = '邮箱可用';
+					nowPar.style.color = 'green';
+					this.style.borderColor = 'green';
+				} else {
+					nowPar.innerHTML = '邮箱格式不正确';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				}
+			}
+
+			//手机得焦失焦事件
+			oPhone.onfocus = function(){
+				//全局得焦显示
+				getFocus(this,'手机号码不能为空','手机号码不可用','手机格式可用','请输入手机号码','请输入手机号码');
+			}
+
+			oPhone.onblur = function(){
+				//基础失焦显示
+				loseFocus(this);
+
+				//输入验证，并返回提示
+				let oVal = trim(this.value);
+				let nowPar = this.parentNode.lastChild;
+				//电话验证
+				let oReg = /^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$/g;
+				//未输入值时清空提示
+				if(oVal == ''){
+					clearPar(this,nowPar);
+				} else if(oVal.replace(/(^\s*)|(\s*$)/g, "") == ''){
+					nowPar.innerHTML = '手机号码不能为空';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				} else if(oReg.test(oVal)){
+					console.log(oReg.test(oVal));
+					nowPar.innerHTML = '手机格式可用';
+					nowPar.style.color = 'green';
+					this.style.borderColor = 'green';
+				} else {
+					nowPar.innerHTML = '手机号码不可用';
+					nowPar.style.color = 'red';
+					this.style.borderColor = 'red';
+				}
+			}
+
+			//提交按钮事件
+			oButton.onclick = function(){
+					let flag = 0;
+				
+				for(let i = 0;i < oInput.length;i ++){
+					//验证每个input中都有值
+					//验证每个input的框都为绿色
+					let oVal = oInput[i].value;
+					let oColor = getStyle(oInput[i],'borderColor');
+					console.log(oVal + oColor);
+					if(oVal != '' && oColor == 'rgb(0, 128, 0)'){
+						// alert('验证成功！');
+						flag = 1;
+					} else {
+						flag = 0;
+						// alert('输入有误！');
+					}
+				}
+				if(flag){
+					alert('验证成功！');
+				} else{
+					alert('输入有误！');
+				}
+			}
+		}
+	</script>
 </head>
 <body>
-	
+	<div>
+		<label>名称</label>
+		<input type="text" id="inputName">
+	</div>
+	<div>
+		<label>密码</label>
+		<input type="password" id="inputPassword">
+	</div>
+	<div>
+		<label>密码确认</label>
+		<input type="password" id="inputConfirm">
+	</div>
+	<div>
+		<label>邮箱</label>
+		<input type="text" id="inputEmail">
+	</div>
+	<div>
+		<label>手机</label>
+		<input type="text" id="inputPhone">
+	</div>
+	<div>
+		<button id="checkButton">提交</button>
+	</div>	
 </body>
 </html>
