@@ -31,7 +31,7 @@
 
 			//1.字符数为4~16位
 			oCheck.onclick = function(){
-				let oVal = oInput.value;
+				let oVal = trim(oInput.value);
 				let oCheckString = checkString(oVal);
 				console.log(oVal);
 				//未输入值
@@ -52,6 +52,11 @@
 					oShow.style.color = 'green';
 					oInput.style.borderColor = 'green';
 				}
+			}
+			
+			//去掉空格
+			function trim(str) {
+ 				return str.replace(/(^\s+)|(\s+$)/g, "");
 			}
 
 			//计算输入字符的长度
