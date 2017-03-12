@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task2</title>
+	<style type="text/css">
+		body{margin: 0;font-size: 16px;font-family:'宋体',sans-serif;}
+		#container{
+			width: 800px;
+			margin: 100px auto;
+		}
+
+		.hide{
+			display: none !important;
+		}
+
+		.show{
+			background-color: #38f !important;
+		}
+
+		/*select全局样式*/
+		select,input{
+			height: 34px;
+			border-radius: 5px;
+			outline: none;
+			padding-left: 5px;
+			font-size: 15px;
+			border: 1px solid #ccc;
+			box-shadow: 0 0 1px .5px #eee inset;
+			cursor: pointer;
+		}
+
+		option{
+			cursor: pointer;
+		}
+
+		/*单选框样式*/
+		form{padding: 10px;
+			margin: 28px 0;}
+		form label{
+			font-size: 16px;
+			position: relative;
+			font-weight: bold;
+			padding-left: 22px;
+			cursor: pointer;
+		}
+		form label:nth-child(1){
+			margin-left: 150px;
+			margin-right: 180px;
+		}
+
+		form input{
+			width: 0;
+			height: 0;
+		}
+
+		form label i{
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 16px;
+			height: 16px;
+			border: 1px solid #ddd;
+			border-radius: 50%;
+			background-color: #fff;
+		}
+
+		form label i span{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background-color: #fff;
+			margin: -3px 0 0 -3px;
+		}
+
+		/*学校样式*/
+		#school label{
+			margin-left: 100px;
+			font-size: 15px;
+			font-weight: bold;
+		}
+		#school #city{
+			width: 180px;
+			margin-left: 15px;
+		}
+
+		#school select{
+			width: 300px;
+			margin-left: 50px;
+		}
+
+		/*单位样式*/
+		#company{
+			margin-left: 66px;
+		}
+		#company label{
+			font-weight: bold;
+		}
+		#company input{
+			width: 540px;
+			margin: 0 0 0 15px;
+			padding: 0 0 0 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oForm = document.getElementById('form');
+			var oRadio = oForm.getElementsByTagName('input');
+			var oSchool = document.getElementById('school');
+			var oCompany = document.getElementById('company');
+			var oCity = document.getElementById('city');
+			var oOption = oCity.getElementsByTagName('option');
+			var oSelect = oSchool.getElementsByTagName('select');
+			var oI = oForm.getElementsByTagName('i');
+
+			//切换radio
+			oForm.onclick = function(){
+				for(let i = 0;i < oRadio.length;i ++){
+					if(oRadio[i].checked){
+						//切换学校与就业表单
+						changeCompany(i);
+					}
+				}
+			}
+
+			//切换学校与就业表单
+			function changeCompany(index){
+				if(index == 0){
+					oSchool.className = '';
+					oCompany.className = 'hide';
+					oI[0].className = 'show';
+					oI[1].className = '';
+				} else{
+					oSchool.className = 'hide';
+					oCompany.className = '';
+					oI[0].className = '';
+					oI[1].className = 'show';
+				}
+
+			}
+
+			//切换地点时同时切换学校
+			oCity.onclick = function(){
+				var index = oCity.selectedIndex;
+				changeSchool(index);
+			}
+
+			function changeSchool(index){
+				for(let i = 1;i < oSelect.length;i ++){
+					oSelect[i].className = 'hide';
+				}
+				oSelect[index + 1].className = '';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<form id="form">
+			<label><input type="radio" name="person" checked>在校生<i class="show"><span></span></i></label>
+			<label><input type="radio" name="person">非在校生<i><span></span></i></label>
+		</form>
+		<div id="school">
+			<label>学校</label>
+			<select id="city">
+				<option id="beiJing" selected="selected">北京</option>
+				<option id="shangHai">上海</option>
+				<option id="wuHan">武汉</option>
+				<option id="hangZhou">杭州</option>
+			</select>
+			<select id="beiJingUniv">
+				<option selected="selected">北京大学</option>
+				<option>清华大学</option>
+			</select>
+			<select id="shangHaiUniv" class="hide">
+				<option selected="selected">复旦大学</option>
+				<option>上海交通大学</option>
+			</select>
+			<select id="wuHanUniv" class="hide">
+				<option selected="selected">武汉大学</option>
+				<option>华中科技大学</option>
+			</select>
+			<select id="hangZhouUniv" class="hide">
+				<option selected="selected">杭州大学</option>
+				<option>傻傻大学</option>
+			</select>
+		</div>
+
+		<div id="company" class="hide">
+			<label>就业单位</label>
+			<input type="text">
+		</div>
+	</div>
+</body>
+</html>
