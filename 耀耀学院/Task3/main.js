@@ -35,7 +35,7 @@ function moveGo(){
 	console.log(top);
 	var left = parseInt(oBlock.style.left);
 	console.log(left);
-	angle = (angle % 360 > 0) ? angle: (angle+360);
+	angle = (angle % 360 >= 0) ? (angle%360): (angle+360);
 	console.log(angle);
 	switch(angle){
 		case 0: if(top>=50){oBlock.style.top = (top - 50) + "px";};
