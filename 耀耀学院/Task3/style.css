@@ -1,0 +1,98 @@
+/*公共样式*/
+*{
+	margin: 0;
+	padding: 0;
+}
+/*main style*/
+
+/*设置盒子样式*/
+#container{
+	display: flex;
+	position: relative;
+	background-color: #fff;
+	padding: 20px 80px;
+	width: 900px;
+	margin: 10px auto 0;
+	border-radius: 2px 2px 0 0;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 30px rgba(0,0,0,0.1) inset;
+}
+
+#container:before,#container:after{
+	content:'';
+	position: absolute;
+	top: 50%;
+	bottom: -1px;
+	left: 20px;
+	right: 20px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	border-radius: 100px/10px;
+	z-index: -1;
+}
+
+/*设置表格样式*/
+#table,#buttons{
+	display: inline-block;
+}
+#table table{
+	border-collapse: collapse;
+}
+#table table tr td{
+	box-sizing: border-box;
+	position: relative;
+	box-sizing: border-box;
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #ccc;
+}
+
+/*设置小方块的样式*/
+#block{
+	width: 50px;
+	height: 50px;
+	background-color: blue;
+	transition: all .5s;
+}
+
+#block #blockRed{
+	width: 50px;
+	height: 10px;
+	background-color: red;
+}
+
+/*设置按钮的样式*/
+#buttons{
+	padding: 10px 0 0 50px;
+}
+
+#buttons button{
+	height: 26px;
+	line-height: 26px;
+	padding: 0 12px;
+	font-size: 17px;
+	border: none;
+	text-align: center;
+	background-color: #38f;
+	color: #fff;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+#buttons #inputIn{
+	margin-top: 20px;
+}
+
+#buttons #inputIn input{
+	width: 200px;
+	height: 25px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding-left: 10px;
+	font-size: 16px;
+	outline-style: none;
+}
+::-webkit-input-placeholder{
+	color: #bbb;
+}
+
