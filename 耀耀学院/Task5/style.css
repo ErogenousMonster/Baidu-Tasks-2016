@@ -1,0 +1,17 @@
+/*common style*/
+body,p,h1{margin: 0;padding: 0;font-size: 15px;}
+button{border: none;height: 30px;line-height: 30px;width: 70px;background-color: #848484;border-radius: 3px;color: #fff;cursor: pointer;}
+/*basical style*/
+#container{height: 2000px;}
+/*按钮*/
+#button{margin: 20px auto;text-align: center;}
+/*遮盖层*/
+#shadow{position: fixed;top:0;left:0;z-index: 2;width: 100%;background-color: #000;opacity: .3;filter: alpha(opacity = 30);}
+/*浮出层*/
+#content{position: fixed;z-index: 5;width: 500px;height: 300px;border: 1px solid #000;background-color: #fff;/*left: calc(50% - 251px);top: calc(50% - 151px);此种方法也可居中*/}
+#content h1{padding-left: 20px;height: 30px;line-height: 30px;color: #fff;background-color: #848484;border-bottom: 1px solid #000;}
+#content #footer{box-sizing: border-box;padding: 5px;position: relative;height: 270px;}
+#content #footer p{margin-top: 20px;margin-left: 10px;color: #000;}
+#content #footer button{position: absolute;}
+#content #footer button#confirm{right: 80px;bottom: 5px;}
+#content #footer button#cancel{right: 5px;bottom: 5px;}
